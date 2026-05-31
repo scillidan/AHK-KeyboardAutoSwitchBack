@@ -1,11 +1,8 @@
-; Automatically switch the keyboard layout to the one layout when a user activates a new window.
-; Authors: perplexity.ai🧙‍♂️, GLM-5🧙‍♂️, scillidan🤡
-
 scriptDir := A_ScriptDir
-iniPath := scriptDir . "\keyboard_autoswitch.ini"
+iniPath := scriptDir . "\KeyboardAutoSwitchBack.ini"
 
 if (!FileExist(iniPath)) {
-    MsgBox, 0x10, Error, Configuration file not found:`n%iniPath%`n`nPlease ensure keyboard_autoswitch.ini exists in the same folder.
+    MsgBox, 0x10, Error, Configuration file not found:`n%iniPath%`n`nPlease ensure KeyboardAutoSwitchBack.ini exists in the same folder.
     ExitApp
 }
 
@@ -16,7 +13,7 @@ IniRead, checkInterval, %iniPath%, Options, CheckInterval, 200
 targetLayout := targetLayout + 0
 
 startupDir := A_StartMenu . "\Programs\Startup"
-shortcutPath := startupDir . "\keyboard_autoswitch.lnk"
+shortcutPath := startupDir . "\Keyboard Auto Switch Back.lnk"
 isStartup := FileExist(shortcutPath)
 
 Menu, Tray, NoStandard
