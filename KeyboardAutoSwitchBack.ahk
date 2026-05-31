@@ -1,5 +1,6 @@
 scriptDir := A_ScriptDir
 iniPath := scriptDir . "\KeyboardAutoSwitchBack.ini"
+trayIcon := scriptDir . "\assets\icon.ico"
 
 if (!FileExist(iniPath)) {
     MsgBox, 0x10, Error, Configuration file not found:`n%iniPath%`n`nPlease ensure KeyboardAutoSwitchBack.ini exists in the same folder.
@@ -30,6 +31,7 @@ Menu, Tray, Add, Suspend Hotkeys, SuspendHotkeys
 Menu, Tray, Add, Pause Script, PauseScript
 Menu, Tray, Add, Exit, ExitScript
 Menu, Tray, Tip, Keyboard Autoswitch`nTarget: EN-US
+Menu, Tray, Icon, %trayIcon%
 
 lastWinID := 0
 
