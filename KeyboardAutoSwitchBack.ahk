@@ -13,6 +13,11 @@ IniRead, checkInterval, %iniPath%, Options, CheckInterval, 200
 
 targetLayout := targetLayout + 0
 
+layoutID := Format("{:08X}", targetLayout & 0xFFFF)
+RegRead, layoutName, HKLM\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\%layoutID%, Layout Text
+if (ErrorLevel || !layoutName)
+    layoutName := targetLayout
+
 startupDir := A_StartMenu . "\Programs\Startup"
 shortcutPath := startupDir . "\Keyboard Auto Switch Back.lnk"
 isStartup := FileExist(shortcutPath)
@@ -30,7 +35,7 @@ if (isStartup) {
 Menu, Tray, Add, Suspend Hotkeys, SuspendHotkeys
 Menu, Tray, Add, Pause Script, PauseScript
 Menu, Tray, Add, Exit, ExitScript
-Menu, Tray, Tip, Keyboard Autoswitch`nTarget: EN-US
+Menu, Tray, Tip, Keyboard Auto Switch Back`nTarget: %layoutName%
 Menu, Tray, Icon, %trayIcon%
 
 lastWinID := 0
