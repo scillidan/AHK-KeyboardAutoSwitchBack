@@ -39,7 +39,7 @@ jobs:
             /out "KeyboardAutoSwitchBack.exe"
 
       - name: ZIP
-        run: 7z a -tzip KeyboardAutoSwitchBack.zip KeyboardAutoSwitchBack.exe KeyboardAutoSwitchBack.ini assets/icon.ico
+        run: 7z a -tzip KeyboardAutoSwitchBack.zip KeyboardAutoSwitchBack.exe KeyboardAutoSwitchBack.ini assets/icon.ico LICENSE
 
       - name: Generate SHA256 checksums
         run: sha256sum KeyboardAutoSwitchBack.zip > KeyboardAutoSwitchBack.exe.sha256
