@@ -6,6 +6,6 @@
 
 Automatically switch to the target keyboard layout when a new window is activated.
 
-Authors: perplexity.ai🧙‍♂️, GLM-5🧙‍♂️, scillidan🤡
+Authors: GLM-5🧙‍♂️, scillidan🤡
 
 The icon is from [SimpleKeys](https://beamedeighth.itch.io/simplekeys-animated-pixel-keyboard-keys) by [beamedeighth](https://beamedeighth.itch.io/).
