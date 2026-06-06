@@ -24,16 +24,14 @@ isStartup := FileExist(shortcutPath)
 
 Menu, Tray, NoStandard
 Menu, Tray, DeleteAll
-
 if (isStartup) {
     Menu, Tray, Add, Start with Windows, ToggleStartup
     Menu, Tray, Check, Start with Windows
 } else {
     Menu, Tray, Add, Start with Windows, ToggleStartup
 }
-
-Menu, Tray, Add, Suspend Hotkeys, SuspendHotkeys
-Menu, Tray, Add, Pause Script, PauseScript
+Menu, Tray, Add, Edit Config, EditConfig
+Menu, Tray, Add, Reload, ReloadApp
 Menu, Tray, Add, Exit, ExitScript
 Menu, Tray, Tip, Keyboard Auto Switch Back`nTarget: %layoutName%
 Menu, Tray, Icon, %trayIcon%
@@ -75,6 +73,19 @@ PauseScript:
     } else {
         Menu, Tray, Uncheck, Pause Script
     }
+return
+
+EditConfig:
+    Run, edit "%iniPath%"
+return
+
+ReloadApp:
+    TrayTip, Keyboard Auto Switch Back, Config reloaded, 2, 1
+    SetTimer, DoReload, -500
+return
+
+DoReload:
+    Reload
 return
 
 ExitScript:
