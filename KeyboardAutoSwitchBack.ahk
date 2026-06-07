@@ -57,24 +57,6 @@ ToggleStartup:
     }
 return
 
-SuspendHotkeys:
-    Suspend, Toggle
-    if (A_IsSuspended) {
-        Menu, Tray, Check, Suspend Hotkeys
-    } else {
-        Menu, Tray, Uncheck, Suspend Hotkeys
-    }
-return
-
-PauseScript:
-    Pause, Toggle
-    if (A_IsPaused) {
-        Menu, Tray, Check, Pause Script
-    } else {
-        Menu, Tray, Uncheck, Pause Script
-    }
-return
-
 EditConfig:
     Run, edit "%iniPath%"
 return
