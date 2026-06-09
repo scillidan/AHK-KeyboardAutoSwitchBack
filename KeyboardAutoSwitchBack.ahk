@@ -11,6 +11,11 @@ IniRead, switchDelay, %iniPath%, General, SwitchDelay, 600
 IniRead, targetLayout, %iniPath%, Layout, TargetLayout, 0x04090409
 IniRead, checkInterval, %iniPath%, Options, CheckInterval, 200
 
+EnvGet, envEditor, EDITOR
+IniRead, scriptEditor, %iniPath%, AutoHotkey, ScriptEditor, __MISSING__
+if (scriptEditor = "__MISSING__" || scriptEditor = "")
+    scriptEditor := envEditor != "" ? envEditor : "notepad"
+
 targetLayout := targetLayout + 0
 
 layoutID := Format("{:08X}", targetLayout & 0xFFFF)
@@ -33,7 +38,7 @@ if (isStartup) {
 Menu, Tray, Add, Edit Config, EditConfig
 Menu, Tray, Add, Reload, ReloadApp
 Menu, Tray, Add, Exit, ExitScript
-Menu, Tray, Tip, Keyboard Auto Switch Back`nTarget: %layoutName%
+Menu, Tray, Tip, Keyboard Auto Switch Back`nTarget keyboard: %layoutName%
 Menu, Tray, Icon, %trayIcon%
 
 lastWinID := 0
@@ -58,7 +63,8 @@ ToggleStartup:
 return
 
 EditConfig:
-    Run, edit "%iniPath%"
+    global scriptEditor, iniPath
+    Run, %scriptEditor% "%iniPath%"
 return
 
 ReloadApp:
