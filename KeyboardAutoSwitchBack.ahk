@@ -38,7 +38,7 @@ if (isStartup) {
 Menu, Tray, Add, Edit Config, EditConfig
 Menu, Tray, Add, Reload, ReloadApp
 Menu, Tray, Add, Exit, ExitScript
-Menu, Tray, Tip, Keyboard Auto Switch Back`nTarget keyboard: %layoutName%
+Menu, Tray, Tip, Keyboard Auto Switch Back`nTarget layout: %layoutName%
 Menu, Tray, Icon, %trayIcon%
 
 lastWinID := 0
