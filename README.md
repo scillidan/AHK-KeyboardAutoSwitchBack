@@ -4,6 +4,9 @@
 
 # Keyboard Auto Switch Back
 
+> This repository is archived and kept for historical reference only.  
+> I'm currently using **[desktop-tools](https://github.com/scillidan/desktop-tools)** instead, which replaces and includes this project.
+
 Automatically switch to the target keyboard layout when a new window is activated.
 
 Authors: GLM-5🧙‍♂️, scillidan🤡
